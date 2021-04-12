@@ -4,7 +4,13 @@ body{
     background-color: #F3F3F3;
     line-height: 20px;
 }
-
+.tela-entrada{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    z-index: 1;
+}
 .topo {
     position: fixed;
     top:0;
@@ -67,4 +73,7 @@ input::placeholder{
     font-style: italic;
     color: black;
     font-size: 18px;
+}
+.escondido{
+    display: none;
 }
