@@ -51,5 +51,20 @@ li{
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: red;
+    background-color: #fff;
+    font-size: 30px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 18px;
+}
+input{
+    height: 30px;
+    border: 0;
+}
+input::placeholder{
+    font-style: italic;
+    color: black;
+    font-size: 18px;
 }

@@ -52,3 +52,6 @@ table {
 strong{
     font-weight: 700;
 }
+input:focus{
+    outline-width: 0;
+}
