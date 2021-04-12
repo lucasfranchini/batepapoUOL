@@ -59,7 +59,6 @@ li{
     height: 80px;
     background-color: #fff;
     font-size: 30px;
-    line-height: 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -68,11 +67,13 @@ li{
 input{
     height: 30px;
     border: 0;
+    font-size: 18px;
+    line-height: 21px;
+    color: black;
 }
 input::placeholder{
     font-style: italic;
     color: black;
-    font-size: 18px;
 }
 .escondido{
     display: none;
