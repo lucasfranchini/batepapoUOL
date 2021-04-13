@@ -19,7 +19,7 @@
     <div class="bate-papo">
         <div class="topo">
             <img src="imagens/logo 1.png" alt="logo UOL">
-            <ion-icon name="people"></ion-icon>
+            <ion-icon name="people" onclick="mostrar('membros-online')"></ion-icon>
         </div>
         <ul class="campo-textos">
             <li class="sistema">
@@ -41,7 +41,8 @@
             <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
     </div>
-    <div class="membros-online">
+    <div class="membros-online escondido" >
+        <div class="fundo"onclick="esconder(this)"></div>
         <div class="selecao-membros">
             <span>Escolha um contato <br>
                 para enviar mensagem:</span>
