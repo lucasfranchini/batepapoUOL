@@ -1,3 +1,10 @@
+
+descer();
+function descer(){
+    const tamanhoPagina = document.body.scrollHeight;
+    window.scroll(0,tamanhoPagina);
+    
+}
 function mostrarOuEsconderTela(tela){
  document.querySelector(`.${tela}`).classList.toggle("escondido");
 }
