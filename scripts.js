@@ -1,8 +1,18 @@
+let usuario;
 let enviarMensagem = {
-    remetente: "Lucas",
+    remetente: "",
     destinatario: "Todos",
     visibilidade: "Público"
 }
+function perguntarUsuario (){
+    usuario = document.querySelector(".tela-entrada input").value;
+    // verificar se o usuario é valido
+    //se o usuario for valido fechar tela-entrada
+    document.querySelector(".tela-entrada").classList.add("escondido");
+    enviarMensagem.remetente = usuario;
+}
+
+
 
 descer();
 

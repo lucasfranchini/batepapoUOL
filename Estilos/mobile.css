@@ -14,9 +14,19 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
 .tela-entrada img{
     margin-top: 72px;
     margin-bottom: 94px;
+}
+.usuario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carregando img{
+    width: 70px;
+    margin: 0px;
 }
 .tela-entrada input{
     height: 54px;
