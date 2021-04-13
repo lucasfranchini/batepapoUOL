@@ -137,9 +137,19 @@ body{
     margin-right: 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 36px;
+    position: relative;
+}
+.esquerda{
+    display: flex;
+    align-items: center;
 }
 .selecao-membros ion-icon{
     margin-right: 7px;
     font-size: 20px;
+}
+
+.selecao-membros .selecionado{
+    color: #28BB25;
 }
