@@ -56,7 +56,7 @@ body{
     height: 100%;
     width: 100%;
 }
-li{
+.bate-papo li{
     display: flex;
     align-items: center;
     border-radius: 2px;
@@ -103,4 +103,43 @@ li{
 }
 .escondido{
     display: none;
+}
+.membros-online{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+.selecao-membros{
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 259px;
+    height: 100%;
+    font-size: 16px;
+    
+}
+.selecao-membros span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 84px;
+    font-weight: 700;
+    line-height: 19px;
+    
+}
+.selecao-membros li{
+    margin-left: 20px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    height: 36px;
+}
+.selecao-membros ion-icon{
+    margin-right: 7px;
+    font-size: 20px;
 }
