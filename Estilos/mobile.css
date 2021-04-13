@@ -85,10 +85,23 @@ body{
     height: 80px;
     background-color: #fff;
     font-size: 30px;
+    padding: 15px 18px 0 18px;
+    line-height: 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 18px;
+}
+.esquerda{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.esquerda span{
+    font-size: 14px;
+    color: #505050;
+    font-weight: 300;
+    
 }
 .bate-papo input{
     height: 30px;
@@ -143,10 +156,7 @@ body{
     height: 36px;
     position: relative;
 }
-.esquerda{
-    display: flex;
-    align-items: center;
-}
+
 .selecao-membros ion-icon{
     margin-right: 7px;
     font-size: 20px;

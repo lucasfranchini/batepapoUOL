@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Estilos/reset.css">
     <link rel="stylesheet" href="Estilos/mobile.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Bate Papo UOL</title>
 </head>
 <body>
@@ -37,8 +37,14 @@
             </li>
         </ul>
         <div class="mensagem">
-            <input type="text" placeholder="Escreva aqui...">
-            <ion-icon name="paper-plane-outline"></ion-icon>
+            <div class="esquerda">
+                <input type="text" placeholder="Escreva aqui...">
+                <span>Enviando para Todos (Público)</span>
+                
+            </div>
+            <div>
+                <ion-icon name="paper-plane-outline"></ion-icon>
+            </div>
         </div>
     </div>
     <div class="membros-online escondido" >
@@ -46,7 +52,7 @@
         <div class="selecao-membros">
             <span>Escolha um contato <br>
                 para enviar mensagem:</span>
-                <ul>
+                <ul class="membros">
                     <li onclick="selecionarMembros(this)">
                         <div class="esquerda">
                             <ion-icon name="people"></ion-icon>
@@ -63,7 +69,7 @@
                     </li>
                 </ul>
                 <span>Escolha a visibilidade:</span>
-                <ul>
+                <ul class="visibilidade">
                     <li onclick="selecionarMembros(this)">
                         <div class="esquerda">
                             <ion-icon name="lock-open"></ion-icon>
