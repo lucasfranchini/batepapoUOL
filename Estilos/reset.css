@@ -55,3 +55,7 @@ strong{
 input:focus{
     outline-width: 0;
 }
+button:focus{
+ border: none;
+ outline-width: 0;
+}
