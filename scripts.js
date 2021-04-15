@@ -61,8 +61,7 @@ function carregarMensagens() {
 function popularMensagens(resposta) {
     let mensagensPostadas = [];
     for (let i = 0; i < resposta.data.length; i++) {
-        let condicao = resposta.data[i].from === usuario || resposta.data[i].to === "Todos" || resposta.data[i].to === usuario || resposta.data[i].type === "message" || resposta.data[i].type === "status";
-        if (condicao) {
+        if (resposta.data[i].from === usuario.name || resposta.data[i].to === "Todos" || resposta.data[i].to === usuario.name || resposta.data[i].type === "message" || resposta.data[i].type === "status") {
             mensagensPostadas.push(resposta.data[i]);
         }
     }
