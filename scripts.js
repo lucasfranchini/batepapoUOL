@@ -45,8 +45,10 @@ function usuarioErrado(){
 function carregarPagina(){
     document.querySelector(".tela-entrada").classList.add("escondido");
     mensagemEnviada.from = usuario.name;
+    obterParticipantes();
     setInterval(statusOnline,5000);
     setInterval(carregarMensagens,3000);
+    setInterval(obterParticipantes,10000);
 }
 
 function carregarMensagens(){
@@ -64,7 +66,6 @@ function popularMensagens(resposta){
         }
     }
     separarMensagens(mensagensPostadas);
-    
 }
 
 function separarMensagens(mensagens){
@@ -118,10 +119,37 @@ function enviarMensagem(){
     promessa.catch(recarregarPagina);
 }
 
-
-
 function mostrarOuEsconderTela(tela){
     document.querySelector(`.${tela}`).classList.toggle("escondido");
+}
+
+function obterParticipantes(){
+    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants");
+    promessa.then(popularParticipantes);
+    promessa.catch(recarregarPagina);
+}
+
+function popularParticipantes(resposta){
+    const participantes = resposta.data;
+    const membrosOnline = document.querySelector(".membros")
+    membrosOnline.innerHTML = `
+    <li onclick="selecionarMembros(this)">
+        <div class="esquerda">
+            <ion-icon name="people"></ion-icon>
+            Todos
+        </div>
+        <ion-icon name="checkmark-sharp" class="selecionado"></ion-icon>
+    </li>`;
+    for(let i=0;i<participantes.length;i++){
+        membrosOnline.innerHTML += `
+    <li onclick="selecionarMembros(this)">
+        <div class="esquerda">
+            <ion-icon name="person-circle"></ion-icon>
+            ${participantes[i].name}
+        </div>
+        <ion-icon name="checkmark-sharp" class="selecionado escondido"></ion-icon>
+    </li>`;
+    }
 }
 
 function selecionarMembros(membro){
