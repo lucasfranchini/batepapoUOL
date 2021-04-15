@@ -133,6 +133,7 @@ function obterParticipantes() {
 function popularParticipantes(resposta) {
     const participantes = resposta.data;
     const membrosOnline = document.querySelector(".membros")
+    let PessoasNaoSelecionadas =0;
     membrosOnline.innerHTML = `
     <li onclick="selecionarMembros(this)">
         <div class="esquerda">
@@ -151,11 +152,16 @@ function popularParticipantes(resposta) {
         <ion-icon name="checkmark-sharp" class="selecionado escondido"></ion-icon>
     </li>`;
         if (mensagemEnviada.to === participantes[i].name) {
-            let membroSelecionado = membrosOnline.querySelectorAll("li ion-icon");
-            membroSelecionado[membroSelecionado.length - 1].classList.remove("escondido");
-            membroSelecionado[1].classList.add("escondido");
+            let membroSelecionado = membrosOnline.querySelectorAll("li");
+            membroSelecionado[membroSelecionado.length - 1].children[1].classList.remove("escondido");
+            membroSelecionado[0].children[1].classList.add("escondido");
         }
-
+        else{
+            PessoasNaoSelecionadas++;
+        }
+    }
+    if(PessoasNaoSelecionadas === participantes.length){
+        mensagemEnviada.to = "Todos";
     }
 }
 
