@@ -6,18 +6,22 @@ let mensagemEnviada = {
     type: "message"
 }
 const inputUsuario = document.querySelector(".usuario input");
+const inputMensagem = document.querySelector(".mensagem input");
 let mensagemFinal = "";
 inputUsuario.addEventListener("keyup",entrarUsuario);
+inputMensagem.addEventListener("keyup",entrarMensagem);
 
-
-let a;
-
-descer();
 carregarMensagens();
 
 function entrarUsuario(event){
     if(event.keyCode === 13){
         perguntarUsuario();
+    }
+}
+
+function entrarMensagem(event){
+    if(event.keyCode === 13){
+        enviarMensagem();
     }
 }
 
@@ -52,7 +56,6 @@ function carregarMensagens(){
 }
 
 function popularMensagens(resposta){
-    a = resposta;
     let mensagensPostadas =[];
     for(let i=0;i<resposta.data.length;i++){
         let condicao = resposta.data[i].from === usuario || resposta.data[i].to === "Todos" || resposta.data[i].to=== usuario || resposta.data[i].type === "message" || resposta.data[i].type === "status";
@@ -107,6 +110,15 @@ function descer(){
     const tamanhoPagina = document.body.scrollHeight;
     window.scroll(0,tamanhoPagina);
 }
+
+function enviarMensagem(){
+    mensagemEnviada.text = inputMensagem.value;
+    const promessa = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages",mensagemEnviada);
+    promessa.then(carregarMensagens);
+    promessa.catch(recarregarPagina);
+}
+
+
 
 function mostrarOuEsconderTela(tela){
     document.querySelector(`.${tela}`).classList.toggle("escondido");
