@@ -152,9 +152,9 @@ function popularParticipantes(resposta) {
         <ion-icon name="checkmark-sharp" class="selecionado escondido"></ion-icon>
     </li>`;
         if (mensagemEnviada.to === participantes[i].name) {
-            let membroSelecionado = membrosOnline.querySelectorAll("li");
-            membroSelecionado[membroSelecionado.length - 1].children[1].classList.remove("escondido");
-            membroSelecionado[0].children[1].classList.add("escondido");
+            let membroSelecionado = membrosOnline.querySelectorAll("li ion-icon");
+            membroSelecionado[membroSelecionado.length - 1].classList.remove("escondido");
+            membroSelecionado[1].classList.add("escondido");
         }
         else{
             PessoasNaoSelecionadas++;
