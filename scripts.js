@@ -56,6 +56,7 @@ function carregarMensagens() {
     const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages");
     promessa.then(popularMensagens);
     promessa.catch(recarregarPagina);
+    criarFraseInformativa();
 }
 
 function popularMensagens(resposta) {
