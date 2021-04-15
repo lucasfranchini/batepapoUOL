@@ -66,6 +66,7 @@ function popularMensagens(resposta){
 
 function separarMensagens(mensagens){
     const campoMensagens = document.querySelector(".campo-textos")
+    campoMensagens.innerHTML = "";
     for(let i=0;i<mensagens.length;i++){
         if(mensagens[i].type==="status"){
             campoMensagens.innerHTML += `
