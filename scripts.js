@@ -65,16 +65,25 @@ function popularMensagens(resposta){
 }
 
 function separarMensagens(mensagens){
-    document.querySelector(".campo-textos")
+    const campoMensagens = document.querySelector(".campo-textos")
     for(let i=0;i<mensagens.length;i++){
         if(mensagens[i].type==="status"){
-
+            campoMensagens.innerHTML += `
+        <li class="status">
+            <span><span class="horario">(${mensagens[i].time})</span> <strong>${mensagens[i].from} </strong>${mensagens[i].text}</span>
+        </li>`;
         }
         else if(mensagens[i].type==="private_message"){
-
+            campoMensagens.innerHTML += `
+        <li class="private_message">
+            <span><span class="horario">(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong> reservadamente para <strong>${mensagens[i].to}</strong>: ${mensagens[i].text}</span>
+        </li>`;
         }
         else{
-
+            campoMensagens.innerHTML += `
+        <li class="message">
+            <span><span class="horario">(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong>: ${mensagens[i].text}</span>
+        </li>`;
         }
     }
     if(mensagemFinal != mensagens[mensagens.length-1].text){
