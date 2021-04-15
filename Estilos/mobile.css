@@ -101,11 +101,15 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.mensagem input{
+    width: calc(100%);
+}
 .esquerda{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
+
 
 .esquerda span{
     font-size: 14px;
