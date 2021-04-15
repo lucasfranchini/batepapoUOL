@@ -115,6 +115,7 @@ function descer() {
 
 function enviarMensagem() {
     mensagemEnviada.text = inputMensagem.value;
+    inputMensagem.value = "";
     const promessa = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages", mensagemEnviada);
     promessa.then(carregarMensagens);
     promessa.catch(recarregarPagina);
