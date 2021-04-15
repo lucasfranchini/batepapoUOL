@@ -48,7 +48,7 @@ table {
 }
 *{
     box-sizing: border-box;
-	overflow-x: hidden;
+	word-break: break-all;
 }
 strong{
     font-weight: 700;
