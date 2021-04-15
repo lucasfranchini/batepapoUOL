@@ -77,14 +77,14 @@ body{
 .horario{
     color:#AAAAAA;
 }
-.sistema{
+.status{
     background-color: #DCDCDC;
 
 }
-.todos{
+.message{
     background-color: #fff;
 }
-.reservado{
+.private_message{
     background-color:  #FFDEDE;
 }
 .mensagem{

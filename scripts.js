@@ -6,9 +6,14 @@ let mensagemEnviada = {
     type: "message"
 }
 const inputUsuario = document.querySelector(".usuario input");
-
+let mensagemFinal = "";
 inputUsuario.addEventListener("keyup",entrarUsuario);
+
+
+let a;
+
 descer();
+carregarMensagens();
 
 function entrarUsuario(event){
     if(event.keyCode === 13){
@@ -26,26 +31,66 @@ function perguntarUsuario (){
     promessa.catch(usuarioErrado);
 }
 
-function carregarPagina(){
-    document.querySelector(".tela-entrada").classList.add("escondido");
-    mensagemEnviada.from = usuario.name;
-    setInterval(statusOnline,5000);
-}
-
-function statusOnline (){
-    const promessa = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status",usuario);
-    promessa.catch(recarregarPagina);
-}
-
-function recarregarPagina(){
-    window.location.reload();
-}
-
 function usuarioErrado(){
     alert("esse usuario ja esta em uso, tente outro");
     const telaCarregamento = document.querySelector(".carregando");
     telaCarregamento.classList.add("escondido");
     inputUsuario.parentNode.classList.remove("escondido");
+}
+
+function carregarPagina(){
+    document.querySelector(".tela-entrada").classList.add("escondido");
+    mensagemEnviada.from = usuario.name;
+    setInterval(statusOnline,5000);
+    setInterval(carregarMensagens,3000);
+}
+
+function carregarMensagens(){
+    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages");
+    promessa.then(popularMensagens);
+    promessa.catch(recarregarPagina);
+}
+
+function popularMensagens(resposta){
+    a = resposta;
+    let mensagensPostadas =[];
+    for(let i=0;i<resposta.data.length;i++){
+        let condicao = resposta.data[i].from === usuario || resposta.data[i].to === "Todos" || resposta.data[i].to=== usuario || resposta.data[i].type === "message" || resposta.data[i].type === "status";
+        if(condicao){
+            mensagensPostadas.push(resposta.data[i]);
+        }
+    }
+    separarMensagens(mensagensPostadas);
+    
+}
+
+function separarMensagens(mensagens){
+    document.querySelector(".campo-textos")
+    for(let i=0;i<mensagens.length;i++){
+        if(mensagens[i].type==="status"){
+
+        }
+        else if(mensagens[i].type==="private_message"){
+
+        }
+        else{
+
+        }
+    }
+    if(mensagemFinal != mensagens[mensagens.length-1].text){
+        descer();
+        mensagemFinal=mensagens[mensagens.length-1].text;
+    }
+}
+
+function statusOnline(){
+    const promessa = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status",usuario);
+    promessa.catch(recarregarPagina);
+}
+
+function recarregarPagina(){
+    alert("Ops! você foi desconectado");
+    window.location.reload();
 }
 
 function descer(){
